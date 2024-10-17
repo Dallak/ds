@@ -364,6 +364,187 @@ change the value of `carpentry` to `incubator`.
 
 <hr/>
 
+
+{% comment %}
+SCHEDULE
+
+Show the workshop's schedule.
+
+Small changes to the schedule can be made by modifying the
+`schedule.html` found in the `_includes` folder for your
+workshop type (`swc`, `lc`, or `dc`). Edit the items and
+times in the table to match your plans. You may also want to
+change 'Day 1' and 'Day 2' to be actual dates or days of the
+week.
+
+For larger changes, a blank template for a 4-day workshop
+(useful for online teaching for instance) can be found in
+`_includes/custom-schedule.html`. Add the times, and what
+you will be teaching to this file. You may also want to add
+rows to the table if you wish to break down the schedule
+further. To use this custom schedule here, replace the block
+of code below the Schedule `<h2>` header below with
+`{% include custom-schedule.html %}`.
+{% endcomment %}
+
+<h2 id="schedule">Schedule</h2>
+
+{% if site.carpentry == "swc" %}
+{% include swc/schedule.html %}
+{% elsif site.carpentry == "dc" %}
+{% include dc/schedule.html %}
+{% elsif site.carpentry == "lc" %}
+{% include lc/schedule.html %}
+{% elsif site.carpentry == "incubator" %}
+This workshop is teaching a lesson in 
+<a href="https://carpentries-incubator.org/">The Carpentries Incubator</a>. Please check <a href="{{site.incubator_lesson_site}}">the lesson homepage</a> for a list of lesson sections and estimated timings.
+{% endif %}
+
+{% comment %}
+Edit/replace the text above if you want to include a schedule table.
+See the contents of the _includes/custom-schedule.html file for an example of
+how one of these schedule tables is constructed.
+{% endcomment %}
+
+{% if site.pilot %}
+The lesson taught in this workshop is being piloted and a precise schedule is yet to be established. The workshop will include regular breaks. Please <a href="mailto:{{page.email}}">contact the workshop organisers</a> if you would like more information about the planned schedule.
+{% endif %}
+
+<hr/>
+
+
+{% comment %}
+SETUP
+
+Delete irrelevant sections from the setup instructions.  Each
+section is inside a 'div' without any classes to make the beginning
+and end easier to find.
+
+This is the other place where people frequently make mistakes, so
+please preview your site before committing, and make sure to run
+'tools/check' as well.
+{% endcomment %}
+
+<h2 id="setup">Setup</h2>
+
+<p>
+  To participate in a
+  {% if site.carpentry == "swc" %}
+  Software Carpentry
+  {% elsif site.carpentry == "dc" %}
+  Data Carpentry
+  {% elsif site.carpentry == "lc" %}
+  Library Carpentry
+  {% endif %}
+  workshop,
+  you will need access to software as described below.
+  In addition, you will need an up-to-date web browser.
+</p>
+<p>
+  We maintain a list of common issues that occur during installation as a reference for instructors
+  that may be useful on the
+  <a href = "{{site.swc_github}}/workshop-template/wiki/Configuration-Problems-and-Solutions">Configuration Problems and Solutions wiki page</a>.
+</p>
+
+<div id="r">
+  <h3>R</h3>
+
+  <p>
+    <a href="https://www.r-project.org">R</a> is a programming language
+    that is especially powerful for data exploration, visualization, and
+    statistical analysis. To interact with R, we use
+    <a href="https://posit.co/products/open-source/rstudio/">RStudio</a>.
+  </p>
+
+  <div>
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a data-os="windows" href="#rstats-windows" aria-controls="Windows" role="tab" data-toggle="tab">Windows</a></li>
+      <li role="presentation"><a data-os="macos" href="#rstats-macos" aria-controls="MacOS" role="tab" data-toggle="tab">MacOS</a></li>
+      <li role="presentation"><a data-os="linux" href="#rstats-linux" aria-controls="Linux" role="tab" data-toggle="tab">Linux</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <article role="tabpanel" class="tab-pane active" id="rstats-windows">
+        <p>
+          Install R by downloading and running
+          <a href="https://cran.r-project.org/bin/windows/base/release.htm">this .exe file</a>
+          from <a href="https://cran.r-project.org/index.html">CRAN</a>.
+          Also, please install the
+          <a href="https://posit.co/download/rstudio-desktop/">RStudio IDE</a>.
+          Note that if you have separate user and admin accounts, you should run the
+          installers as administrator (right-click on .exe file and select "Run as
+          administrator" instead of double-clicking). Otherwise problems may occur later,
+          for example when installing R packages.
+        </p>
+        <h4>Video Tutorial</h4>
+        <div class="yt-wrapper2">
+        <div class="yt-wrapper">
+        <iframe type="text/html" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" src="https://www.youtube-nocookie.com/embed/q0PjTAylwoU?modestbranding=1&playsinline=1&iv_load_policy=3&rel=0" class="yt-frame" allowfullscreen></iframe>
+        </div>
+        </div>
+      </article>
+      <article role="tabpanel" class="tab-pane" id="rstats-macos">
+        <p>
+          Install R by downloading and running
+          <a href="https://cran.r-project.org/bin/macosx/R-latest.pkg">this .pkg file</a>
+          from <a href="https://cran.r-project.org/index.html">CRAN</a>.
+          Also, please install the
+          <a href="https://posit.co/download/rstudio-desktop/">RStudio IDE</a>.
+        </p>
+        <h4>Video Tutorial</h4>
+        <div class="yt-wrapper2">
+        <div class="yt-wrapper">
+        <iframe type="text/html" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" src="https://www.youtube-nocookie.com/embed/5-ly3kyxwEg?modestbranding=1&playsinline=1&iv_load_policy=3&rel=0" class="yt-frame" allowfullscreen></iframe>
+        </div>
+        </div>
+      </article>
+      <article role="tabpanel" class="tab-pane" id="rstats-linux">
+        <p>
+          Instructions for R installation on various Linux platforms (debian,
+          fedora, redhat, and ubuntu) can be found at
+          <https://cran.r-project.org/bin/linux/>. These will instruct you to
+          use your package manager (e.g. for Fedora run
+          <code>sudo dnf install R</code> and for Debian/Ubuntu, add a ppa
+          repository and then run <code>sudo apt-get install r-base</code>).
+          Also, please install the
+          <a href="https://posit.co/download/rstudio-desktop/">RStudio IDE</a>.
+        </p>
+      </article>
+    </div>
+  </div>
+</div>
+
+
+{% comment %}
+For online workshops, the section below provides:
+- installation instructions for the Zoom client
+- recommendations for setting up Learners' workspace so they can follow along
+  the instructions and the videoconferencing
+
+If you do not use Zoom for your online workshop, edit the file
+`_includes/install_instructions/videoconferencing.html`
+to include the relevant installation instructions.
+{% endcomment %}
+{% if online != "false" %}
+{% include install_instructions/videoconferencing.html %}
+{% endif %}
+
+{% comment %}
+These are the installation instructions for the tools used
+during the workshop.
+{% endcomment %}
+
+{% if site.carpentry == "swc" %}
+{% include swc/setup.html %}
+{% elsif site.carpentry == "dc" %}
+{% include links.md %}
+{% elsif site.carpentry == "lc" %}
+{% include lc/setup.html %}
+{% elsif site.carpentry == "incubator" %}
+Please check the "Setup" page of
+<a href="{{site.incubator_lesson_site}}">the lesson homepage</a> for instructions to follow
+to obtain the software and data you will need to follow the lesson.
+{% endif %}
 <!-- this is an html comment -->
 
 {% comment %} This is a comment in Liquid {% endcomment %}
