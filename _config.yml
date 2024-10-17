@@ -7,7 +7,7 @@
 # dc: Data Carpentry
 # lc: Library Carpentry
 # cp: Carpentries (to use for instructor traning for instance)
-incubator: "dc"
+carpentry: "incubator"
 
 # Overall title for pages.
 title: "From Code to Concepts: Introduction to Data Science"
