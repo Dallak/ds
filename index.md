@@ -435,7 +435,6 @@ please preview your site before committing, and make sure to run
 </div>
 
 <h2 id="setup">Registration</h2>
-  <h3>Registration</h3>
 {% comment %}
 EVENTBRITE
 
