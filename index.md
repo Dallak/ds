@@ -270,7 +270,6 @@ CODE OF CONDUCT
 {% endcomment %}
 <h2 id="code-of-conduct">Code of Conduct</h2>
 
-<p>
 Everyone who participates in Carpentries activities is required to conform to the <a href="https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html">Code of Conduct</a>. This document also outlines how to report an incident if needed.
 </p>
 
@@ -328,10 +327,6 @@ change the value of `carpentry` to `incubator`.
 {% endif %}
 
 <hr/>
-
-
-<hr/>
-
 
 {% comment %}
 SETUP
