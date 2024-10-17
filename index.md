@@ -428,7 +428,7 @@ please preview your site before committing, and make sure to run
     </div>
   </div>
 </div>
-
+<hr/>
 <h2 id="setup">Registration</h2>
 {% comment %}
 EVENTBRITE
@@ -449,7 +449,7 @@ displayed if the 'eventbrite' field in the header is not set.
   scrolling="auto">
 </iframe>
 {% endif %}
-
+<hr/>
 <!-- this is an html comment -->
 
 
