@@ -502,17 +502,5 @@ to obtain the software and data you will need to follow the lesson.
 {% endif %}
 <!-- this is an html comment -->
 
-{% comment %} This is a comment in Liquid {% endcomment %}
-<hr/>
-> ## Prerequisites
->
-> **These lessons assume no prior knowledge of the skills or tools covered.**
-> 
-> You will need a computer with a working copy of **R** and **RStudio**.
-> Please make sure to install everything *before* working through this lesson.
-> 
-> Follow the instructions on the "[Setup](setup.html)" tab to install the software 
-> and download the necessary data. 
-{: .prereq}
 
 {% include links.md %}
